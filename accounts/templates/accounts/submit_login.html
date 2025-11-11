@@ -71,15 +71,13 @@
 </head>
 <body>
     <div class="login-container">
-        {% if user.is_authenticated %}
         <h2>Login</h2>
-        <form action="{% url 'login' %}" method="POST">
+        <form action="{% url 'submit_login' %}" method="POST">
             {% csrf_token %}
-            <input type="text" name="username" placeholder="Usuário" required>
+           Nome <input type="text" name="username" placeholder="Usuário" required>
             <input type="password" name="password" placeholder="Senha" required>
-            <button type="submit">Entrar</button>
+           Senha <button type="submit">Entrar</button>
         </form>
-        {%endif%}
         <p>Não tem conta? <a href="#">Cadastre-se</a></p>
     </div>
 </body>

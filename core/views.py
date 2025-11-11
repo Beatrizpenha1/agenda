@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from core.models import Contato
 from django.db.models.functions import Concat
@@ -20,7 +21,7 @@ def add_contato(request):
 
     salvarContato.save()
     return render(request, 'core/add_contato.html')
-
+@login_required
 def listar_contato(request):
     contato = Contato.objects.all ()
     return render(request, 'core/listar_contato.html',{'contato':contato})
